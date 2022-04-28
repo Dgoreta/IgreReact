@@ -99,6 +99,7 @@ function TomislavovaIgra({ username, feedback, dodajUHighscore }) {
       {username || <Navigate to="/" replace={true} />}
       <h1>Dobrodošao u Memory Game!</h1>
       <button
+        className="btn-tome"
         onClick={() => {
           console.log("asd");
           dodajUHighscore("Tomislavova Igra", {
@@ -109,7 +110,9 @@ function TomislavovaIgra({ username, feedback, dodajUHighscore }) {
       >
         Spremi rezultat!
       </button>
-      <button onClick={shuffleCards}>New Game</button>
+      <button className="btn-tome" onClick={shuffleCards}>
+        New Game
+      </button>
       <div className="card-grid">
         {cards.map((card) => (
           <TomislavCard
