@@ -62,7 +62,7 @@ export default class IgraBrziKlik extends Component {
             this.props.dodajUHighscore(this.state.imeIgre, {
                 ime: this.props.username,
                 rezultat: this.state.score
-            })
+            },true)
             this.setState({hasScoreBeenEntered: true})
         }
     }
@@ -108,4 +108,3 @@ export default class IgraBrziKlik extends Component {
         )
     }
 }
-

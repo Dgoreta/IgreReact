@@ -8,7 +8,7 @@
   color: #fff;
 }
 
-button {
+.btn-tome {
   background: none;
   border: 2px solid #fff;
   padding: 6px 12px;
@@ -19,7 +19,7 @@ button {
   font-size: 1rem;
 }
 
-button:hover {
+.btn-tome:hover {
   background: #c23866;
   color: #fff;
 }

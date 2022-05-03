@@ -31,7 +31,7 @@ return (
             this.props.dodajUHighscore(this.state.imeIgre, {
               ime: this.props.username,
               rezultat: this.state.rezultat,
-            });
+            },true);
           }}>
           Spremi rezultat
         </button>
