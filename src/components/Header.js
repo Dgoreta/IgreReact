@@ -87,6 +87,15 @@ const Header = () => {
                   Highscore
                 </NavLink>
               </li>
+              <li className='nav-item'>
+                <NavLink
+                  to='/snakeLukaStegic'
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}>
+                  Snake
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

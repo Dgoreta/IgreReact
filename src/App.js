@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import IgraPogadjanjeBrojeva from "./components/IgraPogadjanjeBrojeva";
+import SnakeLukaStegic from "./containers/snake-lukastegic/SnakeLukaStegic.js";
 import Highscore from "./components/Highscore/Index";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -253,6 +254,29 @@ export default class App extends Component {
                 }
               />
               <Route
+                path="/SnakeLukaStegic"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <SnakeLukaStegic
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
                 path="/highscore"
                 element={
                   this.state.username === "" ? (
@@ -314,6 +338,16 @@ export default class App extends Component {
                   }
                 />
               </Route>
+              <Route
+                  path="SnakeLukaStegic"
+                  element={
+                    <PojedinacniHighscore
+                      highscore={this.state.highscore}
+                      username={this.state.username}
+                      imeIgre="Snake"
+                    />
+                  }
+                />
             </Routes>
           </main>
           <Footer />
