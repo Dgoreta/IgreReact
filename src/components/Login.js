@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Login.css";
 
 const Login = ({ handleLogin, inputName }) => {
-  const handleInput = (e) => {
-    handleLogin("", e.target.value);
+  const referencaNaInput = useRef(null);
+
+  const handleInput = () => {
+    handleLogin("", referencaNaInput.current.value);
   };
 
   const handleSetUsername = () => {
@@ -20,8 +22,9 @@ const Login = ({ handleLogin, inputName }) => {
         </label>
         <input
           type='text'
+          ref={referencaNaInput}
           value={inputName}
-          onChange={(e) => handleInput(e)}
+          onChange={() => handleInput()}
           id='form2Example1'
           className='form-control'
         />
