@@ -53,6 +53,15 @@ const Header = () => {
               </li>
               <li className='nav-item'>
                 <NavLink
+                  to='/tinovaIgra'
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}>
+                  Kockice
+                </NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink
                   to='/tomislavovaIgra'
                   className={({ isActive }) => {
                     return isActive ? "nav-link active" : "nav-link";
@@ -80,20 +89,20 @@ const Header = () => {
               </li>
               <li className='nav-item'>
                 <NavLink
+                  to='/SnakeLukaStegic'
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}>
+                  Snake
+                </NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink
                   to='/highscore'
                   className={({ isActive }) => {
                     return isActive ? "nav-link active" : "nav-link";
                   }}>
                   Highscore
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink
-                  to='/snakeLukaStegic'
-                  className={({ isActive }) => {
-                    return isActive ? "nav-link active" : "nav-link";
-                  }}>
-                  Snake
                 </NavLink>
               </li>
             </ul>

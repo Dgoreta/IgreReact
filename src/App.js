@@ -18,6 +18,7 @@ import FloodGame from "./containers/Flood-It/Game.js";
 import TicTacToe from "./components/TicTacToe/IgraTicTacDome";
 import TomislavovaIgra from "./containers/t-pandzic/TomislavovaIgra";
 import IgraBrziKlik from "./components/BrziKlikFunda/IgraBrziKlik";
+import Kockice from "./containers/diceRoll/Kockice";
 
 import { MojaTemaContext } from "./services/konteksti";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -80,12 +81,8 @@ export default class App extends Component {
         highscore: {
           ...state.highscore,
           // Funkcija vraca score poredan od veceg prema manjem ili manjem prema vecem
-          [imeIgre]: posloziHighscore(
-        staro,
-        noviRezultat,
-        odVecegPremaManjem
-      )
-      },
+          [imeIgre]: posloziHighscore(staro, noviRezultat, odVecegPremaManjem),
+        },
       };
     });
   };
@@ -93,24 +90,23 @@ export default class App extends Component {
   render() {
     return (
       <MojaTemaContext.Provider
-        value={{ pozdrav: "Dobar dan", odzdrav: "laku noć" }}
-      >
-        <div id="nasApp">
+        value={{ pozdrav: "Dobar dan", odzdrav: "laku noć" }}>
+        <div id='nasApp'>
           <Header />
           <main>
             <Routes>
               <Route
-                path="/"
+                path='/'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <Naslovna />
                   )
                 }
               />
               <Route
-                path="/login"
+                path='/login'
                 element={
                   <Login
                     inputName={this.state.inputName}
@@ -121,10 +117,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/pogadjanjeBrojeva"
+                path='/pogadjanjeBrojeva'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <IgraPogadjanjeBrojeva
                       brojPokusaja={this.state.brojPokusaja}
@@ -139,10 +135,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/ivaninaIgra"
+                path='/ivaninaIgra'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <IvaninaIgra
                       dodajUHighscore={(
@@ -162,10 +158,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/alanovaIgra"
+                path='/alanovaIgra'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <FloodGame
                       dodajUHighscore={(
@@ -185,10 +181,33 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/tomislavovaIgra"
+                path='/tinovaIgra'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
+                  ) : (
+                    <Kockice
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
+                path='/tomislavovaIgra'
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <TomislavovaIgra
                       dodajUHighscore={(
@@ -208,10 +227,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/lukaFundaIgra"
+                path='/lukaFundaIgra'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <IgraBrziKlik
                       dodajUHighscore={(
@@ -231,10 +250,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/domagojevaIgra"
+                path='/domagojevaIgra'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <TicTacToe
                       dodajUHighscore={(
@@ -254,10 +273,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/SnakeLukaStegic"
+                path='/SnakeLukaStegic'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <SnakeLukaStegic
                       dodajUHighscore={(
@@ -277,77 +296,86 @@ export default class App extends Component {
                 }
               />
               <Route
-                path="/highscore"
+                path='/highscore'
                 element={
                   this.state.username === "" ? (
-                    <Navigate to="/login" replace={true} />
+                    <Navigate to='/login' replace={true} />
                   ) : (
                     <Highscore highscore={this.state.highscore} />
                   )
-                }
-              >
+                }>
                 <Route index element={<SkupniHighscore />} />
                 <Route
-                  path="pogadjanjeBrojeva"
+                  path='pogadjanjeBrojeva'
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre="pogadjanjeBrojeva"
+                      imeIgre='pogadjanjeBrojeva'
                     />
                   }
                 />
                 <Route
-                  path="alanovaIgra"
+                  path='alanovaIgra'
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre="floodIt"
+                      imeIgre='floodIt'
                     />
                   }
                 />
                 <Route
-                  path="tomislavovaIgra"
+                  path='tinovaIgra'
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre="Tomislavova Igra"
+                      imeIgre='tinovaIgra'
                     />
                   }
                 />
                 <Route
-                  path="lukaFundaIgra"
+                  path='tomislavovaIgra'
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre="Brzi Klik"
+                      imeIgre='Tomislavova Igra'
                     />
                   }
                 />
                 <Route
-                  path="domagojevaIgra"
+                  path='lukaFundaIgra'
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre="Križić Kružić"
+                      imeIgre='Brzi Klik'
+                    />
+                  }
+                />
+                <Route
+                  path='domagojevaIgra'
+                  element={
+                    <PojedinacniHighscore
+                      highscore={this.state.highscore}
+                      username={this.state.username}
+                      imeIgre='Križić Kružić'
+                    />
+                  }
+                />
+                <Route
+                  path='SnakeLukaStegic'
+                  element={
+                    <PojedinacniHighscore
+                      highscore={this.state.highscore}
+                      username={this.state.username}
+                      imeIgre='SnakeLukaStegic'
                     />
                   }
                 />
               </Route>
-              <Route
-                  path="SnakeLukaStegic"
-                  element={
-                    <PojedinacniHighscore
-                      highscore={this.state.highscore}
-                      username={this.state.username}
-                      imeIgre="Snake"
-                    />
-                  }
-                />
             </Routes>
           </main>
           <Footer />

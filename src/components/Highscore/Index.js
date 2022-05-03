@@ -50,6 +50,13 @@ const Highscore = ({ highscore }) => {
           className={({ isActive }) => {
             return isActive ? "nav-link active" : "nav-link";
           }}
+          to='./tinovaIgra'>
+          Kockice
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav-link active" : "nav-link";
+          }}
           to='./tomislavovaIgra'>
           Memory game
         </NavLink>
@@ -66,6 +73,13 @@ const Highscore = ({ highscore }) => {
           }}
           to='./domagojevaIgra'>
           TICtacTOE
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav-link active" : "nav-link";
+          }}
+          to='./SnakeLukaStegic'>
+          Snake
         </NavLink>
       </nav>
 
