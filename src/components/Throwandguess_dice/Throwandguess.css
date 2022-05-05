@@ -1,0 +1,63 @@
+.glavni {
+    width: 1500px;
+    height: 600px;
+    background: whitesmoke;
+    color: rgb(24, 22, 22);
+}
+
+.kockica {
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
+    margin-top: 50px;
+    background: linear-gradient(to right, #00c6ff, #0072ff); 
+    color: black;
+    font-weight: 700;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center   
+}
+.kockica-div{
+    display: flex;
+    justify-content: center;
+    margin: 30px 20px   ;
+}
+
+p {
+    font-size: 25px;
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #0072ff;
+    display: inline;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 20px;
+}
+
+.button {
+    margin-top: 15px;
+    margin-right: 20px;
+    border-radius: 60px;
+    background-color: #0072ff;
+    border:2px dotted white;
+    color: white;
+    height: 50px;
+}
+h1 {
+    text-align: center;
+    color: #0072ff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+}
+
+.feedback {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3rem;
+    color: #0072ff;
+}
+
+.brojBacanjaiSuma {
+    margin-left: 20px;
+}
