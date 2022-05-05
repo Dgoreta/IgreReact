@@ -20,7 +20,7 @@ export default class Throwandguess extends Component {
     
     baciKockicu=()=>
     {   
-        if(this.state.kockica1 + this.state.kockica2 + this.state.kockica3 === 15)
+        if(this.state.kockica1 + this.state.kockica2 + this.state.kockica3 === 12)
          {
             this.setState ({
             feedback:"Winner!!",
@@ -71,7 +71,7 @@ export default class Throwandguess extends Component {
     return (
       <div className='glavni'>
         <h1>Throw and guess</h1>
-        <p>Cilj igre je da je zbroj kockica jednak 15. Na raspolaganju imate 10 bacanja.</p> <br/> <br/>
+        <p className='opis'>Zbroj kockica treba biti 12. Na raspolaganju imate 10 pokušaja. Sretno!</p> <br/> <br/>
         <div className='kockica-div'>
           <div className='kockica1 kockica'>
             {this.state.kockica1}
@@ -88,8 +88,8 @@ export default class Throwandguess extends Component {
         </div>
 
         <div className='brojBacanjaiSuma'>
-          <p>Broj bacanja: {this.state.brojBacanja} </p>  <br />
-          <p>Zbroj bacanja: {this.state.kockica1 + this.state.kockica2 + this.state.kockica3} </p>
+          <p className='p1'>Broj bacanja: {this.state.brojBacanja} </p>  <br />
+          <p className='p1'>Zbroj bacanja: {this.state.kockica1 + this.state.kockica2 + this.state.kockica3} </p>
         </div>
 
         <div className='brojBacanjaiSuma'>
@@ -106,5 +106,6 @@ export default class Throwandguess extends Component {
     )
   }
 }
+
 
 

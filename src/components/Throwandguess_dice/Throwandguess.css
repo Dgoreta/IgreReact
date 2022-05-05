@@ -1,52 +1,66 @@
 .glavni {
     width: 1500px;
-    height: 600px;
-    background: whitesmoke;
+    max-height: 550px;
+    background: linear-gradient(to right, #ffefba, #ffffff);
     color: rgb(24, 22, 22);
 }
 
 .kockica {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin-right: 50px;
-    margin-top: 50px;
-    background: linear-gradient(to right, #00c6ff, #0072ff); 
-    color: black;
+    background: #FFAFBD; 
+    color:#e91c75;
     font-weight: 700;
     font-size: 50px;
     display: flex;
     align-items: center;
-    justify-content: center   
+    justify-content: center
+    
+    
+    
 }
 .kockica-div{
     display: flex;
     justify-content: center;
-    margin: 30px 20px   ;
+    margin: 10px 20px;
+    
+    
 }
 
 p {
     font-size: 25px;
     font-weight: 400;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #0072ff;
+    color: #e91c75;
     display: inline;
     text-align: center;
-    padding-top: 20px;
-    margin-left: 20px;
+    margin-bottom: 70px;
+    margin-left: 30px;
+}
+
+.opis {
+    display: flex;
+    justify-content: center;
+}
+
+.p1 {
+    display: inline;
 }
 
 .button {
     margin-top: 15px;
     margin-right: 20px;
-    border-radius: 60px;
-    background-color: #0072ff;
-    border:2px dotted white;
+    border-radius: 40px;
+    background-color: #e91c75;
+    border: 1px dotted white;
     color: white;
     height: 50px;
+    
 }
 h1 {
     text-align: center;
-    color: #0072ff;
+    color:#e91c75;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 800;
     font-size: 50px;
@@ -55,9 +69,14 @@ h1 {
 .feedback {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 3rem;
-    color: #0072ff;
+    color: #e91c75;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .brojBacanjaiSuma {
-    margin-left: 20px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
 }
