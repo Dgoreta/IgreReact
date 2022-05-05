@@ -51,7 +51,7 @@ class Kockica extends React.Component {
             this.props.dodajUHighscore(this.state.imeIgre, {
                 ime: this.props.username,
                 rezultat: this.state.numberOfTries
-            })
+            },false)
             this.setState({isScoreStored: true})
             alert("Rezultat je unesen!")
         }
