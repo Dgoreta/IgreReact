@@ -12,7 +12,7 @@ import SkupniHighscore from "./components/Highscore/SkupniHighscore";
 //import ProbaKonteksta from "./containers/ProbaKonteksta";
 import izracunajIgru1 from "./services/izracunajIgru1";
 import posloziHighscore from "./services/posloziHighscore";
-
+import ComputerGuessesNumber from "./components/ComputerGuessesNumber/ComputerGuessesNumber";
 import IvaninaIgra from "./containers/IvaninaIgra";
 import FloodGame from "./containers/Flood-It/Game.js";
 import TicTacToe from "./components/TicTacToe/IgraTicTacDome";
@@ -90,23 +90,24 @@ export default class App extends Component {
   render() {
     return (
       <MojaTemaContext.Provider
-        value={{ pozdrav: "Dobar dan", odzdrav: "laku noć" }}>
-        <div id='nasApp'>
+        value={{ pozdrav: "Dobar dan", odzdrav: "laku noć" }}
+      >
+        <div id="nasApp">
           <Header />
           <main>
             <Routes>
               <Route
-                path='/'
+                path="/"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <Naslovna />
                   )
                 }
               />
               <Route
-                path='/login'
+                path="/login"
                 element={
                   <Login
                     inputName={this.state.inputName}
@@ -117,10 +118,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/pogadjanjeBrojeva'
+                path="/pogadjanjeBrojeva"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <IgraPogadjanjeBrojeva
                       brojPokusaja={this.state.brojPokusaja}
@@ -135,10 +136,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/ivaninaIgra'
+                path="/ivaninaIgra"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <IvaninaIgra
                       dodajUHighscore={(
@@ -157,11 +158,35 @@ export default class App extends Component {
                   )
                 }
               />
+
               <Route
-                path='/alanovaIgra'
+                path="/ComputerGuessesNumber"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <ComputerGuessesNumber
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/alanovaIgra"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <FloodGame
                       dodajUHighscore={(
@@ -181,10 +206,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/tinovaIgra'
+                path="/tinovaIgra"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <Kockice
                       dodajUHighscore={(
@@ -204,10 +229,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/tomislavovaIgra'
+                path="/tomislavovaIgra"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <TomislavovaIgra
                       dodajUHighscore={(
@@ -227,10 +252,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/lukaFundaIgra'
+                path="/lukaFundaIgra"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <IgraBrziKlik
                       dodajUHighscore={(
@@ -250,10 +275,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/domagojevaIgra'
+                path="/domagojevaIgra"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <TicTacToe
                       dodajUHighscore={(
@@ -273,10 +298,10 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/SnakeLukaStegic'
+                path="/SnakeLukaStegic"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <SnakeLukaStegic
                       dodajUHighscore={(
@@ -296,82 +321,83 @@ export default class App extends Component {
                 }
               />
               <Route
-                path='/highscore'
+                path="/highscore"
                 element={
                   this.state.username === "" ? (
-                    <Navigate to='/login' replace={true} />
+                    <Navigate to="/login" replace={true} />
                   ) : (
                     <Highscore highscore={this.state.highscore} />
                   )
-                }>
+                }
+              >
                 <Route index element={<SkupniHighscore />} />
                 <Route
-                  path='pogadjanjeBrojeva'
+                  path="pogadjanjeBrojeva"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='pogadjanjeBrojeva'
+                      imeIgre="pogadjanjeBrojeva"
                     />
                   }
                 />
                 <Route
-                  path='alanovaIgra'
+                  path="alanovaIgra"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='floodIt'
+                      imeIgre="floodIt"
                     />
                   }
                 />
                 <Route
-                  path='tinovaIgra'
+                  path="tinovaIgra"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='tinovaIgra'
+                      imeIgre="tinovaIgra"
                     />
                   }
                 />
                 <Route
-                  path='tomislavovaIgra'
+                  path="tomislavovaIgra"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='Tomislavova Igra'
+                      imeIgre="Tomislavova Igra"
                     />
                   }
                 />
                 <Route
-                  path='lukaFundaIgra'
+                  path="lukaFundaIgra"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='Brzi Klik'
+                      imeIgre="Brzi Klik"
                     />
                   }
                 />
                 <Route
-                  path='domagojevaIgra'
+                  path="domagojevaIgra"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='Križić Kružić'
+                      imeIgre="Križić Kružić"
                     />
                   }
                 />
                 <Route
-                  path='SnakeLukaStegic'
+                  path="SnakeLukaStegic"
                   element={
                     <PojedinacniHighscore
                       highscore={this.state.highscore}
                       username={this.state.username}
-                      imeIgre='SnakeLukaStegic'
+                      imeIgre="SnakeLukaStegic"
                     />
                   }
                 />
