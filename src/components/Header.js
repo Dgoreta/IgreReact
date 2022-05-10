@@ -67,6 +67,46 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <NavLink
+                  to="/mirelinaIgra"
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                >
+                  Mirelana Igra
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/brunovaIgra"
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                >
+                  brunovaIgra
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/tonijevaIgra"
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                >
+                  tonijevaIgra
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/darijinaIgra"
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                >
+                  darijinaIgra
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
                   to="/tinovaIgra"
                   className={({ isActive }) => {
                     return isActive ? "nav-link active" : "nav-link";

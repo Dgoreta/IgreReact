@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import IgraPogadjanjeBrojeva from "./components/IgraPogadjanjeBrojeva";
+import IgraPogadjanjeBrojeva from "./components/IgraPogadjanjeBrojeva.js";
 import SnakeLukaStegic from "./containers/snake-lukastegic/SnakeLukaStegic.js";
 import Highscore from "./components/Highscore/Index";
 import Header from "./components/Header";
@@ -19,7 +19,10 @@ import TicTacToe from "./components/TicTacToe/IgraTicTacDome";
 import TomislavovaIgra from "./containers/t-pandzic/TomislavovaIgra";
 import IgraBrziKlik from "./components/BrziKlikFunda/IgraBrziKlik";
 import Kockice from "./containers/diceRoll/Kockice";
-
+import Millionaire from "./components/Millionaire/Millionaire.js";
+import KockicaDragica from "./components/KockicaDragica/Kockica"
+import Throwandguess from "./components/Throwandguess_dice/Throwandguess"
+import MirelaBacanjeKocke from "./containers/MirelaBacanjeKocke/Kocka"
 import { MojaTemaContext } from "./services/konteksti";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -189,6 +192,98 @@ export default class App extends Component {
                     <Navigate to="/login" replace={true} />
                   ) : (
                     <FloodGame
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/mirelinaIgra"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <MirelaBacanjeKocke
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/brunovaIgra"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <ComputerGuessesNumber
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/tonijevaIgra"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <Millionaire
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/darijinaIgra"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <Throwandguess
                       dodajUHighscore={(
                         imePropa,
                         vrijednostPropa,
