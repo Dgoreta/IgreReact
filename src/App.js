@@ -301,6 +301,29 @@ export default class App extends Component {
                 }
               />
               <Route
+                path="/dragicaIgra"
+                element={
+                  this.state.username === "" ? (
+                    <Navigate to="/login" replace={true} />
+                  ) : (
+                    <KockicaDragica
+                      dodajUHighscore={(
+                        imePropa,
+                        vrijednostPropa,
+                        odVecegPremaManjem
+                      ) =>
+                        this.dodajHighscoreUStanje(
+                          imePropa,
+                          vrijednostPropa,
+                          odVecegPremaManjem
+                        )
+                      }
+                      username={this.state.username}
+                    />
+                  )
+                }
+              />
+              <Route
                 path="/tinovaIgra"
                 element={
                   this.state.username === "" ? (

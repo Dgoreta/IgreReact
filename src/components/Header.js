@@ -87,6 +87,16 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <NavLink
+                  to="/dragicaIgra"
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                >
+                  dragicaIgra
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
                   to="/tonijevaIgra"
                   className={({ isActive }) => {
                     return isActive ? "nav-link active" : "nav-link";
