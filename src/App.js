@@ -10,6 +10,7 @@ import PojedinacniHighscore from "./components/Highscore/PojedinacniHighscore";
 import SkupniHighscore from "./components/Highscore/SkupniHighscore";
 //import VjezbamoHookice from "./components/VjezbamoHookice";
 //import ProbaKonteksta from "./containers/ProbaKonteksta";
+import ZmijaBorna from "./components/zmijaBorna/SnakeGame";
 import izracunajIgru1 from "./services/izracunajIgru1";
 import posloziHighscore from "./services/posloziHighscore";
 import ComputerGuessesNumber from "./components/ComputerGuessesNumber/ComputerGuessesNumber";
@@ -20,9 +21,9 @@ import TomislavovaIgra from "./containers/t-pandzic/TomislavovaIgra";
 import IgraBrziKlik from "./components/BrziKlikFunda/IgraBrziKlik";
 import Kockice from "./containers/diceRoll/Kockice";
 import Millionaire from "./components/Millionaire/Millionaire.js";
-import KockicaDragica from "./components/KockicaDragica/Kockica"
-import Throwandguess from "./components/Throwandguess_dice/Throwandguess"
-import MirelaBacanjeKocke from "./containers/MirelaBacanjeKocke/Kocka"
+import KockicaDragica from "./components/KockicaDragica/Kockica";
+import Throwandguess from "./components/Throwandguess_dice/Throwandguess";
+import MirelaBacanjeKocke from "./containers/MirelaBacanjeKocke/Kocka";
 import { MojaTemaContext } from "./services/konteksti";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -120,13 +121,14 @@ export default class App extends Component {
                   />
                 }
               />
+
               <Route
-                path="/pogadjanjeBrojeva"
+                path="/zmijaBorna"
                 element={
                   this.state.username === "" ? (
                     <Navigate to="/login" replace={true} />
                   ) : (
-                    <IgraPogadjanjeBrojeva
+                    <ZmijaBorna
                       brojPokusaja={this.state.brojPokusaja}
                       zamisljeniBroj={this.state.zamisljeniBroj}
                       username={this.state.username}
